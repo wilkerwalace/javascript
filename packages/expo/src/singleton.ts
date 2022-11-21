@@ -1,6 +1,6 @@
-// @ts-ignore
 import Clerk from '@clerk/clerk-js/dist/clerk.headless';
 import type { FapiRequestInit, FapiResponse } from '@clerk/clerk-js/dist/types/src/core/fapiClient';
+import Clerk1 from '@clerk/clerk-js/headless';
 import type { ClerkProp } from '@clerk/clerk-react';
 
 import { getToken as getTokenFromMemory, saveToken as saveTokenInMemory, TokenCache } from './cache';
@@ -20,6 +20,7 @@ export function buildClerk({ frontendApi, tokenCache }: BuildClerkOptions): Cler
 
   if (!clerk) {
     clerk = new Clerk(frontendApi);
+    const clerk1 = new Clerk1(frontendApi);
 
     if (!tokenCache) {
       return clerk;
