@@ -1,3 +1,4 @@
+import type { OrganizationResource } from '@clerk/types';
 import React from 'react';
 
 import { QuestionMark } from '../../../ui/icons';
@@ -23,6 +24,7 @@ export const CreateOrganizationPage = withCardStateProvider(() => {
   const inviteTitle = localizationKeys('organizationProfile.invitePage.title');
   const card = useCardState();
   const [file, setFile] = React.useState<File | null>();
+  const [lastCreatedOrganization, setCreatedOrganization] = React.useState<OrganizationResource | null>(null);
   const { createOrganization } = useCoreOrganizations();
   const { setActive, closeCreateOrganization } = useCoreClerk();
   const { mode, navigateAfterCreateOrganization } = useCreateOrganizationContext();
@@ -50,16 +52,19 @@ export const CreateOrganizationPage = withCardStateProvider(() => {
     if (!canSubmit) {
       return;
     }
-
+    setCreatedOrganization(null);
     return createOrganization?.({ name: nameField.value, slug: slugField.value })
       .then(org => (file ? org.setLogo({ file }) : org))
-      .then(org => setActive({ organization: org }))
+      .then(org => {
+        setCreatedOrganization(org);
+        return setActive({ organization: org });
+      })
       .then(wizard.nextStep)
       .catch(err => handleError(err, [nameField, slugField], card.setError));
   };
 
   const completeFlow = () => {
-    void navigateAfterCreateOrganization();
+    void navigateAfterCreateOrganization(lastCreatedOrganization as OrganizationResource);
     if (mode === 'modal') {
       closeCreateOrganization();
     }

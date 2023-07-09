@@ -656,7 +656,7 @@ export type CreateOrganizationProps = {
    * Full URL or path to navigate after creating a new organization.
    * @default undefined
    */
-  afterCreateOrganizationUrl?: string;
+  afterCreateOrganizationUrl?: string | ((organization: OrganizationResource) => string);
   /**
    * Customisation options to fully match the Clerk components to your own brand.
    * These options serve as overrides and will be merged with the global `appearance`
@@ -741,7 +741,7 @@ export type OrganizationSwitcherProps = {
    * Full URL or path to navigate after creating a new organization.
    * @default undefined
    */
-  afterCreateOrganizationUrl?: string;
+  afterCreateOrganizationUrl?: string | ((organization: OrganizationResource) => string);
   /**
    * Full URL or path to navigate to after the user leaves the currently active organization.
    * @default undefined

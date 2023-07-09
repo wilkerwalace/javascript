@@ -1,3 +1,4 @@
+import type { OrganizationResource } from '@clerk/types';
 import React from 'react';
 
 import { buildAuthQueryString, buildURL, pickRedirectionProp } from '../../utils';
@@ -275,8 +276,12 @@ export const useCreateOrganizationContext = () => {
     throw new Error('Clerk: useCreateOrganizationContext called outside CreateOrganization.');
   }
 
-  const navigateAfterCreateOrganization = () =>
-    navigate(ctx.afterCreateOrganizationUrl || displayConfig.afterCreateOrganizationUrl);
+  const navigateAfterCreateOrganization = (organization: OrganizationResource) => {
+    if (typeof ctx.afterCreateOrganizationUrl === 'function') {
+      return navigate(ctx.afterCreateOrganizationUrl(organization));
+    }
+    return navigate(ctx.afterCreateOrganizationUrl || displayConfig.afterCreateOrganizationUrl);
+  };
 
   return {
     ...ctx,
