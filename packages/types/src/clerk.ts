@@ -736,7 +736,7 @@ export type OrganizationSwitcherProps = {
    * Full URL or path to navigate after a successful organization switch.
    * @default undefined
    */
-  afterSwitchOrganizationUrl?: string;
+  afterSwitchOrganizationUrl?: string | ((organization: OrganizationResource | null) => string);
   /**
    * Full URL or path to navigate after creating a new organization.
    * @default undefined

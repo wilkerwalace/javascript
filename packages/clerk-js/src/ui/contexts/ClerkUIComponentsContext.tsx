@@ -231,8 +231,14 @@ export const useOrganizationSwitcherContext = () => {
   const navigateCreateOrganization = () => navigate(ctx.createOrganizationUrl || displayConfig.createOrganizationUrl);
   const navigateOrganizationProfile = () =>
     navigate(ctx.organizationProfileUrl || displayConfig.organizationProfileUrl);
-  const navigateAfterSwitchOrganization = () =>
-    ctx.afterSwitchOrganizationUrl ? navigate(ctx.afterSwitchOrganizationUrl) : Promise.resolve();
+
+  const navigateAfterSwitchOrganization = (organization: OrganizationResource | null) => {
+    const { afterSwitchOrganizationUrl } = ctx;
+    if (typeof afterSwitchOrganizationUrl === 'function') {
+      return navigate(afterSwitchOrganizationUrl(organization));
+    }
+    return afterSwitchOrganizationUrl ? navigate(afterSwitchOrganizationUrl) : Promise.resolve();
+  };
 
   return {
     ...ctx,

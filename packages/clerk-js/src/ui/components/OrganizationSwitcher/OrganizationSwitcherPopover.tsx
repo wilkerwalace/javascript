@@ -60,12 +60,14 @@ export const OrganizationSwitcherPopover = React.forwardRef<HTMLDivElement, Orga
     }
 
     const handleOrganizationClicked = (organization: OrganizationResource) => {
-      return card.runAsync(() => setActive({ organization, beforeEmit: navigateAfterSwitchOrganization })).then(close);
+      return card
+        .runAsync(() => setActive({ organization, beforeEmit: () => navigateAfterSwitchOrganization(organization) }))
+        .then(close);
     };
 
     const handlePersonalWorkspaceClicked = () => {
       return card
-        .runAsync(() => setActive({ organization: null, beforeEmit: navigateAfterSwitchOrganization }))
+        .runAsync(() => setActive({ organization: null, beforeEmit: () => navigateAfterSwitchOrganization(null) }))
         .then(close);
     };
 
