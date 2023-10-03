@@ -2,7 +2,7 @@ import { resolve } from 'node:path';
 
 import fs from 'fs-extra';
 
-import { environmentConfig } from '../adapters/environment.js';
+import { environmentConfig } from '../models/environment.js';
 
 const envKeys: Record<string, { pk: string; sk: string }> = process.env.INTEGRATION_INSTANCE_KEYS
   ? JSON.parse(process.env.INTEGRATION_INSTANCE_KEYS)

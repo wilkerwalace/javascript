@@ -1,7 +1,8 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 import { test as setup } from '@playwright/test';
 
-import type { LongRunningApplication } from '../adapters/longRunningApplication';
 import { constants } from '../constants';
+import type { LongRunningApplication } from '../models/longRunningApplication';
 import { longRunningApps } from '../presets';
 import { fs } from '../scripts';
 

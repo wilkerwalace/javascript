@@ -1,4 +1,4 @@
-import { longRunningApplication } from '../adapters/longRunningApplication';
+import { longRunningApplication } from '../models/longRunningApplication';
 import { instances } from './envs';
 import { next } from './next';
 import { react } from './react';
