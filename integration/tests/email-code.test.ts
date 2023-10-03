@@ -6,7 +6,7 @@ import type { FakeUser } from '../testUtils';
 import { createTestUtils } from '../testUtils';
 
 test.describe('sign up and sign in with email code', () => {
-  const configs = [longRunningApps.react.viteAllEnabled];
+  const configs = [longRunningApps.react.viteWithEmailCodes];
 
   configs.forEach(config => {
     test.describe(`${config.name}`, () => {
@@ -18,7 +18,7 @@ test.describe('sign up and sign in with email code', () => {
       test.beforeAll(async () => {
         app = await config.commit();
         await app.setup();
-        await app.withEnv(appConfigs.instances.allEnabled);
+        await app.withEnv(appConfigs.instances.withEmailCodes);
         await app.dev();
         fakeUser = createTestUtils({ app }).services.users.createFakeUser();
       });

@@ -36,7 +36,7 @@ test.describe('appearance prop', () => {
       )
       .commit();
     await app.setup();
-    await app.withEnv(appConfigs.instances.allEnabled);
+    await app.withEnv(appConfigs.instances.withEmailCodes);
     await app.dev();
   });
 

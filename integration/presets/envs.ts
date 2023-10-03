@@ -1,3 +1,4 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 import { resolve } from 'node:path';
 
 import fs from 'fs-extra';
@@ -12,7 +13,7 @@ if (!envKeys) {
   throw new Error('Missing INTEGRATION_INSTANCE_KEYS environment variable. Is your env or .keys.json file populated?');
 }
 
-const allEnabled = environmentConfig()
+const withEmailCodes = environmentConfig()
   .setEnvVariable('private', 'CLERK_SECRET_KEY', envKeys['all-enabled'].sk)
   .setEnvVariable('public', 'CLERK_PUBLISHABLE_KEY', envKeys['all-enabled'].pk)
   .setEnvVariable('public', 'CLERK_SIGN_IN_URL', '/sign-in')
@@ -25,6 +26,6 @@ const withEmailLinks = environmentConfig()
   .setEnvVariable('public', 'CLERK_SIGN_UP_URL', '/sign-up');
 
 export const instances = {
-  allEnabled,
+  withEmailCodes,
   withEmailLinks,
 } as const;

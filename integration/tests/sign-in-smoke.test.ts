@@ -18,7 +18,7 @@ test.describe('sign in smoke test', () => {
       test.beforeAll(async () => {
         app = await config.commit();
         await app.setup();
-        await app.withEnv(appConfigs.instances.allEnabled);
+        await app.withEnv(appConfigs.instances.withEmailCodes);
         await app.dev();
         const u = createTestUtils({ app });
         fakeUser = u.services.users.createFakeUser();
