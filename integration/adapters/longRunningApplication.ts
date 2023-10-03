@@ -1,7 +1,7 @@
 import treekill from 'tree-kill';
 
 import { constants } from '../constants';
-import { fs } from '../utils';
+import { fs } from '../scripts';
 import type { Application } from './application';
 import type { ApplicationConfig } from './applicationConfig';
 import type { EnvironmentConfig } from './environment';

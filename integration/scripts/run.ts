@@ -1,5 +1,4 @@
 import type { Options } from 'execa';
-// @ts-ignore
 import execa from 'execa';
 
 export const chunkLogger = (log: typeof console.log) => (chunk: Buffer) => {

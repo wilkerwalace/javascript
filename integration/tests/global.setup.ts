@@ -3,7 +3,7 @@ import { test as setup } from '@playwright/test';
 import type { LongRunningApplication } from '../adapters/longRunningApplication';
 import { constants } from '../constants';
 import { longRunningApps } from '../presets';
-import { fs } from '../utils';
+import { fs } from '../scripts';
 
 /**
  * State cannot be shared using playwright,

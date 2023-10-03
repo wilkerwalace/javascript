@@ -1,5 +1,6 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 import { appConfigs } from '../presets';
-import { createLogger, run } from '../utils';
+import { createLogger, run } from '../scripts';
 import type { ApplicationConfig } from './applicationConfig';
 
 const createVercelApiClient = () => {
