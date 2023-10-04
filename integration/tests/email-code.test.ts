@@ -18,7 +18,7 @@ test.describe('sign up and sign in with email code', () => {
       test.beforeAll(async () => {
         app = await config.commit();
         await app.setup();
-        await app.withEnv(appConfigs.instances.withEmailCodes);
+        await app.withEnv(appConfigs.envs.withEmailCodes);
         await app.dev();
         fakeUser = createTestUtils({ app }).services.users.createFakeUser();
       });

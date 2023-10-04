@@ -1,20 +1,20 @@
 import { longRunningApplication } from '../models/longRunningApplication';
-import { instances } from './envs';
+import { envs } from './envs';
 import { next } from './next';
 import { react } from './react';
 import { remix } from './remix';
 
 export const longRunningApps = {
   next: {
-    appRouterWithEmailCodes: longRunningApplication('approuter-all-enabled', next.appRouter, instances.withEmailCodes),
+    appRouterWithEmailCodes: longRunningApplication('approuter-all-enabled', next.appRouter, envs.withEmailCodes),
     // appRouterEmailLink: longRunningApplication(next.appRouter, instances.withEmailLinks),
   },
   react: {
-    viteWithEmailCodes: longRunningApplication('all-enabled', react.vite, instances.withEmailCodes),
-    viteEmailLink: longRunningApplication('email-link', react.vite, instances.withEmailLinks),
+    viteWithEmailCodes: longRunningApplication('all-enabled', react.vite, envs.withEmailCodes),
+    viteEmailLink: longRunningApplication('email-link', react.vite, envs.withEmailLinks),
   },
   remix: {
-    remixNode: longRunningApplication('remix-node', remix.remixNode, instances.withEmailCodes),
+    remixNode: longRunningApplication('remix-node', remix.remixNode, envs.withEmailCodes),
     // remixNodeEmailLink: longRunningApplication('remix-node', remix.remixNode, instances.withEmailLinks),
   },
 };
@@ -22,7 +22,7 @@ export const longRunningApps = {
 export const appConfigs = {
   next,
   react,
-  instances,
+  envs,
   remix,
   longRunning: longRunningApps,
 } as const;

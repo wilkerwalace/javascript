@@ -14,18 +14,20 @@ if (!envKeys) {
 }
 
 const withEmailCodes = environmentConfig()
+  .setId('withEmailCodes')
   .setEnvVariable('private', 'CLERK_SECRET_KEY', envKeys['all-enabled'].sk)
   .setEnvVariable('public', 'CLERK_PUBLISHABLE_KEY', envKeys['all-enabled'].pk)
   .setEnvVariable('public', 'CLERK_SIGN_IN_URL', '/sign-in')
   .setEnvVariable('public', 'CLERK_SIGN_UP_URL', '/sign-up');
 
 const withEmailLinks = environmentConfig()
+  .setId('withEmailLinks')
   .setEnvVariable('private', 'CLERK_SECRET_KEY', envKeys['with-email-links'].sk)
   .setEnvVariable('public', 'CLERK_PUBLISHABLE_KEY', envKeys['with-email-links'].pk)
   .setEnvVariable('public', 'CLERK_SIGN_IN_URL', '/sign-in')
   .setEnvVariable('public', 'CLERK_SIGN_UP_URL', '/sign-up');
 
-export const instances = {
+export const envs = {
   withEmailCodes,
   withEmailLinks,
 } as const;
