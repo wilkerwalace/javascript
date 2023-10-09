@@ -10,3 +10,5 @@ export { createLogger } from './logger';
 export { waitForIdleProcess } from './waitForIdleProcess';
 export { range } from './range';
 export { chunkLogger, run } from './run';
+
+export * from './setup';

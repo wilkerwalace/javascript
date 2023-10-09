@@ -92,3 +92,5 @@ export const createTestUtils = <
 
   return { page, services, po: pageObjects, tabs: browserHelpers } as any;
 };
+
+export { testAgainstRunningApps } from './testAgainstRunningApps';
