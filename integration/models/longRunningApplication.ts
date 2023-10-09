@@ -16,7 +16,7 @@ const getPort = (_url: string) => {
 };
 
 export type LongRunningApplication = ReturnType<typeof longRunningApplication>;
-type LongRunningApplicationParams = {
+export type LongRunningApplicationParams = {
   id: string;
   config: ApplicationConfig;
   env: EnvironmentConfig;
