@@ -22,7 +22,7 @@ export const appendDevBrowserOnCrossOrigin = (
     shouldAppendDevBrowser &&
     !!location &&
     isDevelopmentFromSecretKey(opts.secretKey || SECRET_KEY) &&
-    clerkRequest.clerkUrl.isCrossOrigin(location)
+    clerkRequest.isCrossOrigin(location)
   ) {
     const dbJwt = clerkRequest.cookies.get(DEV_BROWSER_JWT_KEY) || '';
     // Next.js 12.1+ allows redirects only to absolute URLs

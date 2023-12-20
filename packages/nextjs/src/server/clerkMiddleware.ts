@@ -52,7 +52,6 @@ interface ClerkMiddleware {
 }
 
 export const clerkMiddleware: ClerkMiddleware = (...args: unknown[]): any => {
-  const [request, event] = parseRequestAndEvent(args);
   const [handler, options] = parseHandlerAndOptions(args);
 
   const nextMiddleware: NextMiddleware = async (request, event) => {
@@ -116,6 +115,7 @@ export const clerkMiddleware: ClerkMiddleware = (...args: unknown[]): any => {
 
   // If we have a request and event, we're being called as a middleware directly
   // eg, export default clerkMiddleware;
+  const [request, event] = parseRequestAndEvent(args);
   if (request && event) {
     return nextMiddleware(request, event);
   }
