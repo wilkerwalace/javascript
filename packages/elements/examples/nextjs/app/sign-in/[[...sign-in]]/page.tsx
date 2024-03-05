@@ -1,11 +1,12 @@
 'use client';
 
 import { Field, FieldError, GlobalError, Input, Label } from '@clerk/elements/common';
-import { Github, Google, Metamask } from '@clerk/elements/icons';
 import { Navigate, SignIn, SocialProvider, Step, StrategyOption, Verification } from '@clerk/elements/sign-in';
 import Link from 'next/link';
 import { type ComponentProps, useState } from 'react';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
+import Metamask from '@/assets/metamask';
 import { H1, H3, P } from '@/components/design';
 import { CustomField, CustomSubmit } from '@/components/form';
 
@@ -13,26 +14,29 @@ function ActiveSocialProviders() {
   return (
     <>
       <SocialProvider
-        className='text-[rgb(243,243,243)] border-[rgb(37,37,37)] hover:border-[rgb(50,50,50)] [&>svg]:absolute [&>svg]:left-4 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:opacity-80 [&svg]:hover:opacity-100 [&>svg]:grayscale [&>svg]:hover:grayscale-0 relative flex h-14 w-full cursor-pointer items-center justify-center rounded-lg border bg-[rgb(22,22,22)] hover:bg-[rgb(22,22,30)] text-sm transition-all duration-150'
+        className='text-[rgb(243,243,243)] border-[rgb(37,37,37)] hover:border-[rgb(50,50,50)] [&>svg]:absolute [&>svg]:left-4 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:opacity-60 [&>svg]:hover:opacity-90 relative flex h-14 w-full cursor-pointer items-center justify-center rounded-lg border bg-[rgb(22,22,22)] hover:bg-[rgb(22,22,30)] text-sm transition-all duration-150'
         name='github'
       >
-        <Github className='invert' />
+        <FaGithub size='1.25em' />
         <span className='leading-loose'>Continue with GitHub</span>
       </SocialProvider>
 
       <SocialProvider
-        className='text-[rgb(243,243,243)] border-[rgb(37,37,37)] hover:border-[rgb(50,50,50)] [&>svg]:absolute [&>svg]:left-4 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:opacity-80 [&svg]:hover:opacity-100 [&>svg]:grayscale [&>svg]:hover:grayscale-0 relative flex h-14 w-full cursor-pointer items-center justify-center rounded-lg border bg-[rgb(22,22,22)] hover:bg-[rgb(22,22,30)] text-sm transition-all duration-150'
+        className='text-[rgb(243,243,243)] border-[rgb(37,37,37)] hover:border-[rgb(50,50,50)] [&>svg]:absolute [&>svg]:left-4 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:opacity-60 [&>svg]:hover:opacity-90 relative flex h-14 w-full cursor-pointer items-center justify-center rounded-lg border bg-[rgb(22,22,22)] hover:bg-[rgb(22,22,30)] text-sm transition-all duration-150'
         name='google'
       >
-        <Google />
+        <FaGoogle size='1.25em' />
         <span className='leading-loose'>Continue with Google</span>
       </SocialProvider>
 
       <SocialProvider
-        className='text-[rgb(243,243,243)] border-[rgb(37,37,37)] hover:border-[rgb(50,50,50)] [&>svg]:absolute [&>svg]:left-4 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:opacity-80 [&svg]:hover:opacity-100 [&>svg]:grayscale [&>svg]:hover:grayscale-0 relative flex h-14 w-full cursor-pointer items-center justify-center rounded-lg border bg-[rgb(22,22,22)] hover:bg-[rgb(22,22,30)] text-sm transition-all duration-150'
+        className='text-[rgb(243,243,243)] border-[rgb(37,37,37)] hover:border-[rgb(50,50,50)] [&>svg]:absolute [&>svg]:left-4 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:opacity-60 [&>svg]:hover:opacity-90 relative flex h-14 w-full cursor-pointer items-center justify-center rounded-lg border bg-[rgb(22,22,22)] hover:bg-[rgb(22,22,30)] text-sm transition-all duration-150'
         name='metamask'
       >
-        <Metamask />
+        <Metamask
+          height='1.25em'
+          width='1.25em'
+        />
         <span className='leading-loose'>Continue with Metamask</span>
       </SocialProvider>
     </>

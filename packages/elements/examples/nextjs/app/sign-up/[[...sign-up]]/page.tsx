@@ -1,9 +1,10 @@
 'use client';
 
 import { GlobalError } from '@clerk/elements/common';
-import { Github, Google, Metamask } from '@clerk/elements/icons';
 import { SignUp, SocialProvider, Step, Verification } from '@clerk/elements/sign-up';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
+import Metamask from '@/assets/metamask';
 import { H1, HR as Hr } from '@/components/design';
 import { CustomField, CustomSubmit } from '@/components/form';
 
@@ -20,7 +21,7 @@ export default function SignUpPage() {
                 name='github'
                 className='relative flex items-center justify-center gap-4 text-white rounded bg-[#171717] [&>svg]:absolute [&>svg]:left-4 px-20 py-3 text-sm shadow-sm ring-1 ring-black/[0.06] transition-all hover:bg-opacity-80'
               >
-                <Github className='invert' />
+                <FaGithub size='1.25em' />
                 Sign In with GitHub
               </SocialProvider>
 
@@ -28,7 +29,7 @@ export default function SignUpPage() {
                 name='google'
                 className='relative flex items-center justify-center gap-4 text-white rounded bg-[#333f61] [&>svg]:absolute [&>svg]:left-4 px-20 py-3 text-sm shadow-sm ring-1 ring-black/[0.06] transition-all hover:bg-opacity-80'
               >
-                <Google />
+                <FaGoogle size='1.25em' />
                 Sign In with Google
               </SocialProvider>
 
@@ -36,7 +37,10 @@ export default function SignUpPage() {
                 name='metamask'
                 className='relative flex items-center justify-center gap-4 text-[#161616] rounded bg-white [&>svg]:absolute [&>svg]:left-4 px-20 py-3 text-sm shadow-sm ring-1 ring-black/[0.06] transition-all hover:bg-opacity-80'
               >
-                <Metamask />
+                <Metamask
+                  height='1.25em'
+                  width='1.25em'
+                />
                 Sign In with Metamask
               </SocialProvider>
             </div>
